@@ -44,13 +44,5 @@ $this->params['breadcrumbs'][] = 'Update';
     ]]);
     ?>
 
-    <?php
-    /*
-      $this->render('_form', [
-      'model' => $model,
-      ])
-     * 
-     */
-    ?>
 
 </div>

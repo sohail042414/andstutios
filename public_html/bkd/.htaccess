@@ -5,7 +5,9 @@
 #Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch +Indexes
 
 <IfModule mod_rewrite.c>
-Options +FollowSymLinks
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
 Options -Indexes
 RewriteEngine on
 RewriteBase /

@@ -20,7 +20,7 @@ PicoloAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
-        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+        
         <?php // $this->registerCssFile(Yii::$app->homeUrl . 'css/picolo/bootstrap.css'); ?>
         <?php // $this->registerCssFile(Yii::$app->homeUrl . 'css/picolo/bootstrap-responsive.css'); ?>
         <?php // $this->registerCssFile(Yii::$app->homeUrl . 'css/picolo/prettyPhoto.css'); ?>

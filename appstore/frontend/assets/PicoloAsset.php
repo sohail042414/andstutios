@@ -12,6 +12,7 @@ class PicoloAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'picolo/css/fonts.css',
         'picolo/css/bootstrap.css',
         'picolo/css/bootstrap-responsive.css',
         'picolo/css/flexslider.css',

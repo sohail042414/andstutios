@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
+            //'id',
             'system:boolean',
             [
                 'attribute' => 'group.title',
@@ -35,7 +35,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'key',
             'value',
             // 'description:ntext',
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'contentOptions' => ['style' => 'width:260px;'],
+                'header' => 'Actions',
+                'template' => '{view}{update}{delete}',
+                'visibleButtons' => [
+                    'view' => TRUE,
+                    'update' => TRUE,
+                    'delete' => function($model) {
+                        return $model->system ? FALSE : TRUE;
+                    }
+                ]
+            ]
         ],
     ]);
     ?>

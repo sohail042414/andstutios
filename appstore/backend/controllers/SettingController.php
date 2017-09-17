@@ -95,7 +95,12 @@ class SettingController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
+
+        $model = $this->findModel($id);
+
+        if (!$model->system) {
+            $this->findModel($id)->delete();
+        }
 
         return $this->redirect(['index']);
     }

@@ -5,18 +5,16 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\ApplicationImage;
 
 /**
  * SearchApplicationImage represents the model behind the search form about `\common\models\ApplicationImage`.
  */
-class SearchApplicationImage extends ApplicationImage
-{
+class SearchApplicationImage extends ApplicationImage {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'application_id'], 'integer'],
             [['name', 'type'], 'safe'],
@@ -26,8 +24,7 @@ class SearchApplicationImage extends ApplicationImage
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,8 +36,7 @@ class SearchApplicationImage extends ApplicationImage
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = ApplicationImage::find();
 
         // add conditions that should always apply here
@@ -64,8 +60,9 @@ class SearchApplicationImage extends ApplicationImage
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'type', $this->type]);
+                ->andFilterWhere(['like', 'type', $this->type]);
 
         return $dataProvider;
     }
+
 }

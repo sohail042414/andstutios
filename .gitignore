@@ -1,3 +1,5 @@
+/public_html/php.ini
+/public_html/htaccess.ini
 /appstore/vendor/
 /appstore/environments/
 /appstore/common/config/

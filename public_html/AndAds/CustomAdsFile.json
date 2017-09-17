@@ -1,0 +1,35 @@
+{
+    "Version": 7,
+    "AppsList-Android": [
+        {
+            "AdType": "BackAd",
+            "AppTitle": "Candy Crush",
+            "IconUrl": "http://appstore.local/uploads/app-2-1504817659-image.jpg",
+            "Id": "testingapplicationasdfasdjflsdfasdfasjdfasdjfl"
+        },
+        {
+            "AdType": "MainAd",
+            "AppTitle": "Ten Sports",
+            "IconUrl": "http://appstore.local/uploads/app-3-1504817759-image.jpg",
+            "Id": "testingapplicationasdfasdjflasjdfasdjfasdfasdfl"
+        },
+        {
+            "AdType": "BannerAd",
+            "AppTitle": "Ten Sports",
+            "IconUrl": "http://appstore.local/uploads/app-3-1504942365-image.jpeg",
+            "Id": "testingapplicationasdfasdjflasjdfasdjfasdfasdfl"
+        },
+        {
+            "AdType": "BannerAd",
+            "AppTitle": "Espncricinfo",
+            "IconUrl": "http://appstore.local/uploads/app-4-1504817776-image.jpg",
+            "Id": "testingapplicationasdfasdjflasjdfasdjfl"
+        },
+        {
+            "AdType": "MainAd",
+            "AppTitle": "Doctors online",
+            "IconUrl": "http://appstore.local/uploads/app-5-1504817799-image.jpg",
+            "Id": "testingapplicationasdfas343djflasjdfasdjfl"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+/appstore/vendor/
+/appstore/environments/
+/appstore/common/config/
+/appstore/frontend/config/
+/appstore/backend/config/
+/appstore/console/config/

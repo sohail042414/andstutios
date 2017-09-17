@@ -1,0 +1,102 @@
+{
+    "Version": 6,
+
+    "AppsList-Android": [  
+{
+            "AdType": "BackAd",
+            "AppTitle": "Back1",
+            "IconUrl": "https://andstutios.com/AndAds/600x250HillClimb.png",
+            "Id": "com.famousgamesinc.luxuryhillclimb.cars"
+        }, 
+        {
+            "AdType": "BackAd",
+            "AppTitle": "Back2",
+            "IconUrl": "https://andstutios.com/AndAds/600x250HeavyRc.png",
+            "Id": "com.globalappsh.RC.city.police.racer.heavytraffic"
+        }, 
+  {
+            "AdType": "BackAd",
+            "AppTitle": "Back3",
+            "IconUrl": "https://andstutios.com/AndAds/600x250TukTuk.png",
+            "Id": "com.NGG3DStudio.TukTukAutoRickshawSim2017"
+        },
+{
+             "AdType": "BackAd",
+            "AppTitle": "Back4",
+            "IconUrl": "https://andstutios.com/AndAds/600x250PoliceTR.png",
+            "Id": "com.NGGL3GS.TrafficPoliceCarSim2017"
+        },
+{            "AdType": "BackAd",
+            "AppTitle": "Back5",
+            "IconUrl": "https://andstutios.com/AndAds/600x250Heli.png",
+            "Id": "com.famousgamesinc.heavy.gunship.helicopter.war"
+        },
+{            "AdType": "BackAd",
+            "AppTitle": "Back6",
+             "IconUrl": "https://andstutios.com/AndAds/600x250DragDrive.png",
+            "Id": "com.NExtGen.DragDriveTrafficZone"
+        },
+{            "AdType": "BackAd",
+            "AppTitle": "Back7",
+            "IconUrl": "https://andstutios.com/AndAds/600x250FootballAdverts.png",
+            "Id": "com.NextGen.Real.Football.fever"
+        },
+
+{
+             "AdType": "MainAd",
+            "AppTitle": "Main1",
+             "IconUrl": "https://andstutios.com/AndAds/512HillClimb.png",            
+            "Id": "com.famousgamesinc.luxuryhillclimb.cars"
+        },
+        {
+             "AdType": "MainAd",
+            "AppTitle": "Main2",
+		"IconUrl": "https://andstutios.com/AndAds/512Rc.png",
+            
+            "Id": "com.globalappsh.RC.city.police.racer.heavytraffic"
+        },
+
+{
+             "AdType": "MainAd",
+            "AppTitle": "Main3",
+"IconUrl": "https://andstutios.com/AndAds/512TukTuk.png",
+            
+            "Id": "com.NGG3DStudio.TukTukAutoRickshawSim2017"
+        },
+{
+            "AdType": "MainAd",
+            "AppTitle": "Main4",
+ "IconUrl": "https://andstutios.com/AndAds/512PoliceTR.png",
+            
+            "Id": "com.NGGL3GS.TrafficPoliceCarSim2017"
+        },
+{
+            "AdType": "MainAd",
+            "AppTitle": "Main5",
+"IconUrl": "https://andstutios.com/AndAds/512HGSHeli.png",
+            
+            "Id": "com.famousgamesinc.heavy.gunship.helicopter.war"
+        },
+{           "AdType": "MainAd",
+            "AppTitle": "Main6",
+"IconUrl": "https://andstutios.com/AndAds/512DDriveZ.png",           
+            "Id": "com.NExtGen.DragDriveTrafficZone"
+        },
+{           "AdType": "MainAd",
+            "AppTitle": "Main7",
+"IconUrl": "https://andstutios.com/AndAds/512Football.png",
+            
+            "Id": "com.NextGen.Real.Football.fever"
+        },
+{
+              "AdType": "BannerAd",
+            "AppTitle": "Main",
+            "IconUrl": "https://ultimatedrivezone.000webhostapp.com/myads/Ads/adimages/BannerAd1.png",
+            "Id": "com.dhskh.aad"
+        }
+
+
+
+    ]
+
+}

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Setting */
@@ -12,15 +13,23 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'group_id')->textInput() ?>
+    <?= $form->field($model, 'group_id')->dropDownList(ArrayHelper::map(\backend\models\SettingGroup::find()->all(), 'id', 'title')) ?>
 
-    <?= $form->field($model, 'key')->textInput(['maxlength' => true]) ?>
+    <?php
+    if (!$model->system || $model->isNewRecord) {
+        echo $form->field($model, 'key')->textInput(['maxlength' => true]);
+    }
+    ?>
 
     <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'system')->checkbox() ?>
+    <?php
+    if (!$model->system || $model->isNewRecord) {
+        echo $form->field($model, 'system')->checkbox();
+    }
+    ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
 

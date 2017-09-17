@@ -41,10 +41,13 @@ class ApplicationController extends BackController {
         $searchImageModel = new SearchApplicationImage();
         $imageDataProvider = $searchImageModel->search(['SearchApplicationImage' => ['application_id' => $id]]);
 
+        $searchCategoryModel = new \backend\models\SearchApplicationCategory();
+        $categoryDataProvider = $searchCategoryModel->search(['SearchApplicationCategory' => ['application_id' => $id]]);
 
         return $this->render('view', [
                     'model' => $this->findModel($id),
                     'imageDataProvider' => $imageDataProvider,
+                    'categoryDataProvider' => $categoryDataProvider,
         ]);
     }
 
@@ -83,6 +86,13 @@ class ApplicationController extends BackController {
         $searchImageModel = new SearchApplicationImage();
         $imageDataProvider = $searchImageModel->search(['SearchApplicationImage' => ['application_id' => $id]]);
 
+        $appliationCategoryModel = new \backend\models\ApplicationCategory();
+        $appliationCategoryModel->application_id = $id;
+
+        $searchCategoryModel = new \backend\models\SearchApplicationCategory();
+        $categoryDataProvider = $searchCategoryModel->search(['SearchApplicationCategory' => ['application_id' => $id]]);
+
+
         $post = Yii::$app->request->post();
 
         if (isset($post['ApplicationImage'])) {
@@ -98,6 +108,17 @@ class ApplicationController extends BackController {
         }
 
 
+        if (isset($post['ApplicationCategory'])) {
+
+            $tab = 'categories';
+
+            if ($appliationCategoryModel->load($post) && $appliationCategoryModel->save()) {
+                
+            }
+        }
+
+
+
         if (isset($post['Application'])) {
 
             if ($model->load($post) && $model->save()) {
@@ -110,7 +131,9 @@ class ApplicationController extends BackController {
                     'model' => $model,
                     'tab' => $tab,
                     'imageDataProvider' => $imageDataProvider,
-                    'appliationImageModel' => $appliationImageModel
+                    'appliationImageModel' => $appliationImageModel,
+                    'categoryDataProvider' => $categoryDataProvider,
+                    'appliationCategoryModel' => $appliationCategoryModel
         ]);
     }
 
@@ -137,12 +160,27 @@ class ApplicationController extends BackController {
         $imageModel = \backend\models\ApplicationImage::findOne($imageId);
 
         $imageModel->removeFile();
-        
+
         $application_id = $imageModel->application_id;
 
         $imageModel->delete();
 
         return $this->redirect(['update', 'id' => $application_id, 'tab' => 'images']);
+    }
+
+    /**
+     * Deletes an application category,  existing Application model.
+     * If deletion is successful, the browser will be redirected to the respective application update page.
+     * @param integer $imageId
+     * @return mixed
+     */
+    public function actionDeletecategory($application_id, $category_id) {
+
+        $applicaitonCategoryModel = \backend\models\ApplicationCategory::findOne(['application_id' => $application_id, 'category_id' => $category_id]);
+
+        $applicaitonCategoryModel->delete();
+
+        return $this->redirect(['update', 'id' => $application_id, 'tab' => 'categories']);
     }
 
     /**

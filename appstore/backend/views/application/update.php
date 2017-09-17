@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="application-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>  
 
     <?=
     Tabs::widget([
@@ -22,6 +22,15 @@ $this->params['breadcrumbs'][] = 'Update';
                 'label' => 'General',
                 'content' => $this->render('_form', ['model' => $model]),
                 'active' => ($tab == 'general') ? TRUE : FALSE,
+            ],
+            [
+                'label' => 'Categories',
+                'content' => $this->render('_categories', [
+                    'model' => $model,
+                    'categoryDataProvider' => $categoryDataProvider,
+                    'appliationCategoryModel' => $appliationCategoryModel
+                ]),
+                'active' => ($tab == 'categories') ? TRUE : FALSE,
             ],
             [
                 'label' => 'Images',

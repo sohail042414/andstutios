@@ -77,6 +77,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ])
             ],
+            [
+                'label' => 'Categories',
+                'content' => GridView::widget([
+                    'dataProvider' => $categoryDataProvider,
+                    //'filterModel' => $searchModel,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
+                        [
+                            'attribute' => 'category.title',
+                            'label' => 'Category'
+                        ],
+                    ],
+                ])
+            ],
     ]]);
     ?>
 

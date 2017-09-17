@@ -4,3 +4,11 @@
 /appstore/frontend/config/
 /appstore/backend/config/
 /appstore/console/config/
+/adds-backups/
+/etc/
+/logs/
+/perl5/
+/ssl/
+/tmp/
+/access-logs/
+/www/

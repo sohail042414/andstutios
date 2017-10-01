@@ -85,6 +85,21 @@ class Application extends \yii\db\ActiveRecord {
         return $this->hasMany(Category::className(), ['id' => 'category_id'])->viaTable('{{%application_category}}', ['application_id' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApplicationImages() {
+        return $this->hasMany(ApplicationImage::className(), ['application_id' => 'id']);
+    }
+
+    /**
+     * Returns image display image
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDp() {
+        return $this->hasOne(\backend\models\ApplicationImage::className(), ['application_id' => 'id'])->andOnCondition(['type' => 'display']);
+    }
+
     public function behaviors() {
         return [
             'timestamp' => [

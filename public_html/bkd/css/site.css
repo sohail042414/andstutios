@@ -118,3 +118,10 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/*Custome styles*/
+
+.grid-thumb-image{
+    width: 200px;
+    height: 150;
+}

@@ -50,8 +50,13 @@ use yii\helpers\ArrayHelper;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
                 'id',
-                'application_id',
-                'name',
+                [
+                    "attribute" => "image",
+                    "format" => "raw",
+                    "value" => function($model) {
+                        return '<div class="grid-thumb-image">' . Html::img($model->imageurl, ['class' => 'img-thumbnail']) . '</div>';
+                    }
+                ],
                 'type',
                 //['class' => 'yii\grid\ActionColumn'],
                 [

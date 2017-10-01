@@ -71,4 +71,15 @@ class ApplicationImage extends \common\models\ApplicationImage {
         @unlink(Url::to('@frontend/web/uploads/') . $this->name);
     }
 
+    public function getImageUrl() {
+
+        $setting = \frontend\models\Setting::find()->where(['key' => 'images_base_url'])->one();
+
+        if (is_object($setting)) {
+            return $setting->value . $this->name;
+        }
+
+        return $this->name;
+    }
+
 }

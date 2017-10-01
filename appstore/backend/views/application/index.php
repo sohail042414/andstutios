@@ -9,12 +9,11 @@ use yii\grid\GridView;
 
 $this->title = 'Applications';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="application-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
     <p>
         <?= Html::a('Create Application', ['create'], ['class' => 'btn btn-success']) ?>
@@ -33,6 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'id',
+            [
+                'label' => 'Image',
+                "format" => "raw",
+                "value" => function($model) {
+                    return '<div class="grid-thumb-image">' . Html::img($model->dp->imageurl, ['class' => 'img-thumbnail']) . '</div>';
+                }
+            ],
             'status:boolean',
             'title',
             'package_id',

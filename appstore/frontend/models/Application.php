@@ -48,11 +48,17 @@ class Application extends \common\models\Application {
     }
 
     public function getDisplayImageUrl() {
+
         $imageObject = \frontend\models\ApplicationImage::find()
                 ->where(['application_id' => $this->id, 'type' => 'display'])
                 ->one();
 
-        return Yii::getAlias('@web') . '/images/' . $imageObject->name;
+        if (is_object($imageObject)) {
+
+            return Yii::getAlias('@web') . '/images/' . $imageObject->name;
+        }
+
+        return Yii::getAlias('@web') . '/images/default-image.jpg';
 
         //$url = \yii\helpers\Url::to('frontend/web/uploads/' . $imageObject->name);
         //return \yii\helpers\Url::to('frontend/web/uploads/' . $imageObject->name);

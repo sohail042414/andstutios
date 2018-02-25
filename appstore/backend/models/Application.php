@@ -182,4 +182,27 @@ class Application extends \common\models\Application {
         fclose($fp);
     }
 
+    public function beforeDelete() {
+
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+
+        $applicationImage = new \backend\models\ApplicationImage();
+
+        $applicationImage->application_id = $this->id;
+
+        $applicationImage->deleteAppImages();
+
+
+        $applicationCategory = new \backend\models\ApplicationCategory();
+
+        $applicationCategory->application_id = $this->id;
+
+        $applicationCategory->deleteAppCategories();
+
+
+        return true;
+    }
+
 }

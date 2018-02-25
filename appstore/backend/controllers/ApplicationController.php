@@ -144,6 +144,7 @@ class ApplicationController extends BackController {
      * @return mixed
      */
     public function actionDelete($id) {
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -158,9 +159,7 @@ class ApplicationController extends BackController {
     public function actionDeleteimage($imageId) {
 
         $imageModel = \backend\models\ApplicationImage::findOne($imageId);
-
-        $imageModel->removeFile();
-
+        
         $application_id = $imageModel->application_id;
 
         $imageModel->delete();

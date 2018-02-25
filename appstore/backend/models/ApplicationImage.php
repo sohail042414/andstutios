@@ -68,7 +68,7 @@ class ApplicationImage extends \common\models\ApplicationImage {
     }
 
     public function removeFile() {
-        @unlink(Url::to('@frontend/web/uploads/') . $this->name);
+        @unlink($this->getImagesPath() . $this->name);
     }
 
     public function getImageUrl() {
@@ -80,6 +80,26 @@ class ApplicationImage extends \common\models\ApplicationImage {
         }
 
         return $this->name;
+    }
+
+    public function deleteAppImages() {
+
+        $images = $this->find()->where(['application_id' => $this->application_id])->all();
+
+        foreach ($images as $imageModel) {
+            $imageModel->delete();
+            //$imageModel->removeFile();
+        }
+    }
+
+    public function beforeDelete() {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+
+        $this->removeFile();
+
+        return true;
     }
 
 }

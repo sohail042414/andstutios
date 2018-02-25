@@ -31,21 +31,34 @@ $this->params['breadcrumbs'][] = $this->title;
             ];
         },
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'id',
+            //['class' => 'yii\grid\SerialColumn'],
+            //'id',
+            [
+                'label' => 'Id',
+                'value' => function($model) {
+                    return $model->id;
+                },
+                'filter' => false,
+            ],
             [
                 'label' => 'Image',
                 "format" => "raw",
                 "value" => function($model) {
-                    return '<div class="grid-thumb-image"><a href="' . Url::to(['application/view', 'id' => $model->id]) . '" title="Click to view ' . $model->title . '" target="_blank">' . Html::img($model->dp, ['class' => 'img-thumbnail']) . '</a></div>';
+                    return '<div class="grid-thumb-image"><a href="' . Url::to(['application/view', 'id' => $model->id]) . '" title="Click to view ' . $model->title . '" target="_blank">' . Html::img($model->dp, ['class' => 'img-thumbnail', 'style' => 'width:60px;height:40px;']) . '</a></div>';
                 }
             ],
             'status:boolean',
             'title',
-            'package_id',
+            //'package_id',
             'short_description:ntext',
-            'playstore_url:ntext',
-            'version',
+            //'playstore_url:ntext',
+            'version' => [
+                'label' => 'Version',
+                'filter' => false,
+                'value' => function($model) {
+                    return $model->id;
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);

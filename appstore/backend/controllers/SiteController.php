@@ -58,7 +58,8 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        return $this->render('index');
+        return $this->redirect(['/application/index']);
+        //return $this->render('index');
     }
 
     /*     * s

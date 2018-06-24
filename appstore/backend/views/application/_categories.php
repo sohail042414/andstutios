@@ -28,7 +28,7 @@ use yii\helpers\ArrayHelper;
             <?= $form->field($appliationCategoryModel, 'category_id')->dropDownList(ArrayHelper::map(\backend\models\Category::find()->all(), 'id', 'title'), ['prompt' => 'Select']) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Upload', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('Add', ['class' => 'btn btn-primary']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

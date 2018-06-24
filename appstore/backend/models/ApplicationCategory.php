@@ -25,7 +25,7 @@ class ApplicationCategory extends \common\models\ApplicationCategory {
             [['application_id'], 'exist', 'skipOnError' => true, 'targetClass' => Application::className(), 'targetAttribute' => ['application_id' => 'id']],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['category_id'], 'unique', 'message' => 'Category already assigned', 'when' => function() {
-            
+
                     $category = $this->find()->where(['application_id' => $this->application_id, 'category_id' => $this->category_id])->one();
 
                     if (is_object($category)) {
@@ -36,6 +36,16 @@ class ApplicationCategory extends \common\models\ApplicationCategory {
                 }
             ],
         ];
+    }
+
+    public function deleteAppCategories() {
+
+        $categories = $this->find()->where(['application_id' => $this->application_id])->all();
+
+        foreach ($categories as $cat) {
+            $cat->delete();
+            //$imageModel->removeFile();
+        }
     }
 
 }

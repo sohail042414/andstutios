@@ -49,7 +49,11 @@ class ApplicationImage extends \yii\db\ActiveRecord {
 
         $setting = \backend\models\Setting::find()->where(['key' => 'images_upload_path'])->one();
 
-        return is_object($setting) ? $setting->value : '';
-    }
+        if (is_object($setting)) {
+            return rtrim($setting->value, '/') . '/';
+        }
 
+        return '';
+    }
+    
 }

@@ -167,8 +167,10 @@ class Application extends \common\models\Application {
 
             $setting = \backend\models\Setting::find()->where(['key' => 'adds_path'])->one();
 
-            $newName = \yii\helpers\Url::to($setting->value) . 'AddsFile' . date('Y-m-d : h:i:s') . '.json';
-
+            //$newName = \yii\helpers\Url::to($setting->value) . 'AddsFile' . date('Y-m-d : h:i:s') . '.json';
+            
+            $newName =  '/home1/andstuti/public_html/adds/AddsFile' . date('Y-m-d : h:i:s') . '.json';
+            
             rename($this->getFilePath(), $newName);
         }
     }

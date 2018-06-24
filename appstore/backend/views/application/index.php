@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SearchApplication */
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Image',
                 "format" => "raw",
                 "value" => function($model) {
-                    return '<div class="grid-thumb-image">' . Html::img($model->dp->imageurl, ['class' => 'img-thumbnail']) . '</div>';
+                    return '<div class="grid-thumb-image"><a href="' . Url::to(['application/view', 'id' => $model->id]) . '" title="Click to view ' . $model->title . '" target="_blank">' . Html::img($model->dp, ['class' => 'img-thumbnail']) . '</a></div>';
                 }
             ],
             'status:boolean',

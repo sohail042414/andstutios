@@ -97,18 +97,7 @@ class Application extends \yii\db\ActiveRecord {
      * @return \yii\db\ActiveQuery
      */
     public function getDp() {
-
-        //return $this->hasOne(\backend\models\ApplicationImage::className(), ['application_id' => 'id'])->andOnCondition(['type' => 'display']);
-
-        $dp = \backend\models\ApplicationImage::find()->where(['application_id' => $this->id, 'type' => 'display'])->one();
-
-        if (is_object($dp)) {
-            return $dp->imageurl;
-        }
-
-        $setting = \frontend\models\Setting::find()->where(['key' => 'images_base_url'])->one();
-
-        return $setting->value . 'default-image.jpg';
+        return $this->hasOne(\backend\models\ApplicationImage::className(), ['application_id' => 'id'])->andOnCondition(['type' => 'display']);
     }
 
     public function behaviors() {

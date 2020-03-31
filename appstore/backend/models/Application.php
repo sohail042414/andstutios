@@ -170,7 +170,8 @@ class Application extends \common\models\Application {
 
             $setting = \backend\models\Setting::find()->where(['key' => 'adds_path'])->one();
             $dir = $setting->value;
-            $newName = $dir. '/AddsFile' . date('Y-m-d : h:i:s') . '.json';                        
+            //$newName = $dir. '/AddsFile' . date('Y-m-d') .'_'.time(). '.json';                        
+            $newName = $dir. '/AddsFile' . date('Y_m_d_h_i_s').'.json';                        
             rename($this->getFilePath(), $newName);
         }
     }

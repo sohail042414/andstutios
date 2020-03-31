@@ -1,24 +1,6 @@
 {
-    "Version": 9,
+    "Version": 15,
     "AppsList-Android": [
-        {
-            "AdType": "BackAd",
-            "AppTitle": "Sub way surfers",
-            "IconUrl": "https://andstutios.com/images/app-1-1517047296-image.jpeg",
-            "Id": "testingapplicasdfasfasdationasdfasdjflasjdfasdjfl"
-        },
-        {
-            "AdType": "MainAd",
-            "AppTitle": "Ten Sports",
-            "IconUrl": "https://andstutios.com/images/app-3-1504817759-image.jpg",
-            "Id": "testingapplicationasdfasdjflasjdfasdjfasdfasdfl"
-        },
-        {
-            "AdType": "BannerAd",
-            "AppTitle": "Ten Sports",
-            "IconUrl": "https://andstutios.com/images/app-3-1504942365-image.jpeg",
-            "Id": "testingapplicationasdfasdjflasjdfasdjfasdfasdfl"
-        },
         {
             "AdType": "BannerAd",
             "AppTitle": "Espncricinfo",

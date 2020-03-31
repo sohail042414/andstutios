@@ -164,15 +164,13 @@ class Application extends \common\models\Application {
     private function renameOld() {
 
         if (is_file($this->getFilePath())) {
+            //
+            // $setting = \backend\models\Setting::find()->where(['key' => 'adds_file'])->one();
+            // $dir = pathinfo($setting->value, PATHINFO_DIRNAME);
 
             $setting = \backend\models\Setting::find()->where(['key' => 'adds_path'])->one();
-
-            $dir = pathinfo($setting->value, PATHINFO_DIRNAME);
-            //$newName = \yii\helpers\Url::to($setting->value) . 'AddsFile' . date('Y-m-d : h:i:s') . '.json';
-            $newName = $dir. '/AddsFile' . date('Y-m-d : h:i:s') . '.json';            
-            //$newName =  '/home1/andstuti/public_html/adds/AddsFile' . date('Y-m-d : h:i:s') . '.json';
-            //$newName =  '/var/www/html/andstutios/public_html/AndAds/AddsFile' . date('Y-m-d : h:i:s') . '.json';
-            
+            $dir = $setting->value;
+            $newName = $dir. '/AddsFile' . date('Y-m-d : h:i:s') . '.json';                        
             rename($this->getFilePath(), $newName);
         }
     }

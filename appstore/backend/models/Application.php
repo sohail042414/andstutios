@@ -116,7 +116,13 @@ class Application extends \common\models\Application {
 
     public function getCurrentAdds() {
 
-        return file_get_contents($this->getFilePath());
+        $path = $this->getFilePath();
+        
+        if(file_exists($path)){
+            return file_get_contents($this->getFilePath());
+        }
+
+        return '';
     }
 
     public function getFilePath() {

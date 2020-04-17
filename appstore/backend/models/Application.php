@@ -117,9 +117,23 @@ class Application extends \common\models\Application {
     public function getCurrentAdds() {
 
         $path = $this->getFilePath();
+        $name = $this->getFileName();
+
+        $fullPath = $path.$name;
         
         if(file_exists($path)){
-            return file_get_contents($this->getFilePath());
+            return file_get_contents($fullPath);
+        }
+
+        return '';
+    }
+
+    public function getFileName() {
+
+        $setting = \backend\models\Setting::find()->where(['key' => 'adds_file'])->one();
+
+        if(is_object($setting)){
+            return trim($setting->value);
         }
 
         return '';
@@ -127,8 +141,13 @@ class Application extends \common\models\Application {
 
     public function getFilePath() {
 
-        $setting = \backend\models\Setting::find()->where(['key' => 'adds_file'])->one();
-        return \yii\helpers\Url::to($setting->value);
+        $setting = \backend\models\Setting::find()->where(['key' => 'adds_path'])->one();
+        
+        if(is_object($setting)){
+            return trim($setting->value);
+        }
+
+        return '';
     }
 
     public function displayCurrentAdds() {
@@ -169,22 +188,25 @@ class Application extends \common\models\Application {
 
     private function renameOld() {
 
-        if (is_file($this->getFilePath())) {
-            //
-            // $setting = \backend\models\Setting::find()->where(['key' => 'adds_file'])->one();
-            // $dir = pathinfo($setting->value, PATHINFO_DIRNAME);
+        $path = $this->getFilePath();
+        $name = $this->getFileName();
 
-            $setting = \backend\models\Setting::find()->where(['key' => 'adds_path'])->one();
-            $dir = $setting->value;
-            //$newName = $dir. '/AddsFile' . date('Y-m-d') .'_'.time(). '.json';                        
-            $newName = $dir. '/AddsFile' . date('Y_m_d_h_i_s').'.json';                        
-            rename($this->getFilePath(), $newName);
+        $existigFile = $path.$name;
+
+        if (is_file($existigFile)) {
+
+            $newName = $path.rtrim($name,'.json').date('Y_m_d_h_i',time());   
+
+            rename($existigFile, $newName);
         }
     }
 
     private function writeNew($data) {
 
-        $fp = fopen($this->getFilePath(), 'w');
+        $path = $this->getFilePath();
+        $name = $this->getFileName();
+
+        $fp = fopen($path.$name, 'w');
 
         fwrite($fp, $data);
 
@@ -213,5 +235,18 @@ class Application extends \common\models\Application {
 
         return true;
     }
+    /**
+     * check if adds json file is readable.
+     */
+    public function canReadAdds(){
+        return is_readable($this->getFilePath());
+    }
+    /**
+     * check if adds json file is writable
+     */
+    public function canWriteAdds(){
+        return is_writable($this->getFilePath());
+    }
+
 
 }
